@@ -13,7 +13,8 @@ class pvr500pxDatatypeIDType extends eZDataType
      */
     public function __construct()
     {
-        parent::eZDataType( self::DATA_TYPE_STRING, '500px datatype' );
+        $datatypeLabel = ezpI18n::tr( 'datatypes/pvr500pxdatatype', 'pvr500px datatype' )
+        parent::eZDataType( self::DATA_TYPE_STRING, $datatypeLabel, array( 'translation_allowed' => false ) );
     }
 }
 eZDataType::register(  pvr500pxDatatypeIDType::DATA_TYPE_STRING, 'pvr500pxDatatypeIDType' );
