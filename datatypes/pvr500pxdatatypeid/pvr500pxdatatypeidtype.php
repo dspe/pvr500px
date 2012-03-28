@@ -10,11 +10,11 @@ class pvr500pxDatatypeIDType extends eZDataType
     const DATA_TYPE_STRING = 'pvr500pxdatatypeid',
           DATA_TYPE_FIELD = 'ContentClass_pvr500px_';
 
-    const CLASSATTRIBUTE_CONSUMMER_KEY_FIELD = 'data_text1',
+    const CLASSATTRIBUTE_CONSUMMER_KEY_FIELD    = 'data_text1',
           CLASSATTRIBUTE_CONSUMMER_SECRET_FIELD = 'data_text2',
-          CLASSATTRIBUTE_ACCESS_TOKEN = 'data_text3',
-          CLASSATTRIBUTE_ACCESS_TOKEN_SECRET = 'data_text4',
-          CLASSATTRIBUTE_DEFAULT_EMPTY = '';
+          CLASSATTRIBUTE_ACCESS_TOKEN           = 'data_text3',
+          CLASSATTRIBUTE_ACCESS_TOKEN_SECRET    = 'data_text4',
+          CLASSATTRIBUTE_DEFAULT_EMPTY          = '';
 
     /**
      * Constructor
@@ -78,10 +78,10 @@ class pvr500pxDatatypeIDType extends eZDataType
     public function validateClassAttributeHTTPInput( $http, $base, $classAttribute )
     {
         // 4 http post variables to test.
-        $consummer_key_field        = self::DATA_TYPE_FIELD . "_consummer_key_field_" . $classAttribute->attribute( 'id' );
-        $consummer_secret_field     = self::DATA_TYPE_FIELD . "_consummer_secret_field_" . $classAttribute->attribute( 'id' );
-        $oauth_token_field          = self::DATA_TYPE_FIELD . "_consummer_oauth_token_field_" . $classAttribute->attribute( 'id' );
-        $oauth_token_secret_field   = self::DATA_TYPE_FIELD . "_consummer_oauth_token_secret_field_" . $classAttribute->attribute( 'id' );
+        $consummer_key_field        = self::DATA_TYPE_FIELD . "consummer_key_field_" . $classAttribute->attribute( 'id' );
+        $consummer_secret_field     = self::DATA_TYPE_FIELD . "consummer_secret_field_" . $classAttribute->attribute( 'id' );
+        $oauth_token_field          = self::DATA_TYPE_FIELD . "oauth_token_field_" . $classAttribute->attribute( 'id' );
+        $oauth_token_secret_field   = self::DATA_TYPE_FIELD . "oauth_token_secret_field_" . $classAttribute->attribute( 'id' );
 
         if( $http->hasPostVariable( $consummer_key_field ) && $http->hasPostVariable( $consummer_secret_field )
             && $http->hasPostVariable( $oauth_token_field ) && $http->hasPostVariable( $oauth_token_secret_field ) )
@@ -101,10 +101,10 @@ class pvr500pxDatatypeIDType extends eZDataType
      */
     public function fetchClassAttributeHTTPInput( $http, $base, $classAttribute )
     {
-        $consummer_key_field        = self::DATA_TYPE_FIELD . "_consummer_key_field_" . $classAttribute->attribute( 'id' );
-        $consummer_secret_field     = self::DATA_TYPE_FIELD . "_consummer_secret_field_" . $classAttribute->attribute( 'id' );
-        $oauth_token_field          = self::DATA_TYPE_FIELD . "_consummer_oauth_token_field_" . $classAttribute->attribute( 'id' );
-        $oauth_token_secret_field   = self::DATA_TYPE_FIELD . "_consummer_oauth_token_secret_field_" . $classAttribute->attribute( 'id' );
+        $consummer_key_field        = self::DATA_TYPE_FIELD . "consummer_key_field_" . $classAttribute->attribute( 'id' );
+        $consummer_secret_field     = self::DATA_TYPE_FIELD . "consummer_secret_field_" . $classAttribute->attribute( 'id' );
+        $oauth_token_field          = self::DATA_TYPE_FIELD . "oauth_token_field_" . $classAttribute->attribute( 'id' );
+        $oauth_token_secret_field   = self::DATA_TYPE_FIELD . "oauth_token_secret_field_" . $classAttribute->attribute( 'id' );
 
         // Save consummer key
         if( $http->hasPostVariable( $consummer_key_field ) )
@@ -151,9 +151,9 @@ class pvr500pxDatatypeIDType extends eZDataType
         $content = array(
             'consummer_key'         => $classAttribute->attribute( self::CLASSATTRIBUTE_CONSUMMER_KEY_FIELD ),
             'consummer_secret'      => $classAttribute->attribute( self::CLASSATTRIBUTE_CONSUMMER_SECRET_FIELD ),
-            'oauth_token'           => $classAttribute->attribute( self::CLASSATTRIBUTE_ACCESS_TOKEN );
-            'oauth_token_secret'    => $classAttribute->attribute( self::CLASSATTRIBUTE_ACCESS_TOKEN_SECRET );
-        )
+            'oauth_token'           => $classAttribute->attribute( self::CLASSATTRIBUTE_ACCESS_TOKEN ),
+            'oauth_token_secret'    => $classAttribute->attribute( self::CLASSATTRIBUTE_ACCESS_TOKEN_SECRET )
+        );
         return $content;
     }
 }
